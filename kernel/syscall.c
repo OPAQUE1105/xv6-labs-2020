@@ -7,6 +7,7 @@
 #include "syscall.h"
 #include "defs.h"
 extern uint64 sys_trace(void);
+extern uint64 sys_sysinfo(void);
 
 // Fetch the uint64 at addr from the current process.
 int
@@ -129,6 +130,7 @@ static uint64 (*syscalls[])(void) = {
 [SYS_mkdir]   sys_mkdir,
 [SYS_close]   sys_close,
 [SYS_trace]   sys_trace,
+[SYS_sysinfo] sys_sysinfo,
 };
 
 static char *syscall_names[] = {
@@ -154,6 +156,7 @@ static char *syscall_names[] = {
 [SYS_mkdir]   "mkdir",
 [SYS_close]   "close",
 [SYS_trace]   "trace",
+[SYS_sysinfo] "sysinfo",
 };
 
 void
